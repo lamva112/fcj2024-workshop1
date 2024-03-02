@@ -39,7 +39,7 @@ Bạn không thể xem lại mật khẩu người dùng chính. Nếu bạn kh�
 
 ![Create VPC](/images/4/db-instance/004.png?featherlight=false&width=90pc)
 
-1. Trong phần **Connectivity** 
+5. Trong phần **Connectivity** 
    
 - Đối với **Compute resource** chọn **Don’t connect to an EC2 compute resource**. Chúng ta sẽ tự set up kết với EC2 trong phần tiếp theo
 - Đối với **Virtual private cloud (VPC)** chọn **web-app-vpc**
@@ -48,21 +48,21 @@ Bạn không thể xem lại mật khẩu người dùng chính. Nếu bạn kh�
 
 ![Create VPC](/images/4/db-instance/005.png?featherlight=false&width=90pc)
 
-5. Đối với **VPC security group (firewall)**
+6. Đối với **VPC security group (firewall)**
 
  - Chọn ***Create new*
  - **New VPC security group name**, nhập **webapp-db-security-group**
 
 ![Create VPC](/images/4/db-instance/006.png?featherlight=false&width=90pc)
 
-6. Mở **Additional configuration** và nhập **```corp```** cho **Initial database name**
+7. Mở **Additional configuration** và nhập **```corp```** cho **Initial database name**
 
 ![Create VPC](/images/4/db-instance/007.png?featherlight=false&width=90pc)
 
-7. Chọn **Create** và Db instance bắt đầu khởi tạo 
+8. Chọn **Create** và Db instance bắt đầu khởi tạo 
 
 ![Create VPC](/images/4/db-instance/008.png?featherlight=false&width=90pc)
 
-8. Đợi khoảng 5 phút để **status** chuyển sang **available**
+9. Đợi khoảng 5 phút để **status** chuyển sang **available**
 
 ![Create VPC](/images/4/db-instance/009.png?featherlight=false&width=90pc)

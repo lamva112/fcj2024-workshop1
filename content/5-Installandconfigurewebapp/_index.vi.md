@@ -101,13 +101,13 @@ Bạn có thể copy file corp.php từ github repo này : https://github.com/la
 
 ![Create VPC](/images/5/007.png?featherlight=false&width=50pc&height=30pc)
 
-4. Mở trình duyệt của bạn và truy cập vào địa chỉ URL http://PUBLICIP/corp.php
+5. Mở trình duyệt của bạn và truy cập vào địa chỉ URL http://PUBLICIP/corp.php
 
 {{% notice note %}}
 PUBLICIP là public IP của EC2
 {{% /notice %}}
 
-5. Hoàn thành tạo ứng dụng web 
+6. Hoàn thành tạo ứng dụng web 
 
 {{% notice note %}}
 Bạn có thể thêm dữ liệu vào database trực tiếp từ ứng dụng web
@@ -117,11 +117,11 @@ Bạn có thể thêm dữ liệu vào database trực tiếp từ ứng dụng 
 
 #### Xác minh dữ liệu trong cơ sở dữ liệu.
 
-6. Trở lại root bằng lệnh **cd**
+7. Trở lại root bằng lệnh **cd**
 
 ![Create VPC](/images/5/009.png?featherlight=false&width=50pc&height=30pc)
 
-7. Cài đặt mqsql client trong the ec2 instance
+8. Cài đặt mqsql client trong the ec2 instance
 
 
 ```bash
@@ -135,7 +135,7 @@ pip install mysqlclient
 ```
 ![Create VPC](/images/5/010.png?featherlight=false&width=50pc&height=30pc)
 
-8. Kết nối đến cơ sở dữ liệu và truy vấn dữ liệu
+9. Kết nối đến cơ sở dữ liệu và truy vấn dữ liệu
 
 ```bash
 #Truy cập vào MySQL
@@ -154,7 +154,7 @@ MySQL [corp]> select * from EMPLOYEES;
 
 ![Create VPC](/images/5/013.png?featherlight=false&width=50pc&height=30pc)
 
-9. Thêm nhiều dữ liệu từ trang web và xem xét xem có phản ánh thay đổi không. Tùy chọn chèn dữ liệu vào bảng cơ sở dữ liệu trực tiếp và xem xét xem trang web có hiển thị dữ liệu không.
+10. Thêm nhiều dữ liệu từ trang web và xem xét xem có phản ánh thay đổi không. Tùy chọn chèn dữ liệu vào bảng cơ sở dữ liệu trực tiếp và xem xét xem trang web có hiển thị dữ liệu không.
 
 ```bash
 insert into EMPLOYEES values ('2','Phuc','18','Ho Chi Minh');

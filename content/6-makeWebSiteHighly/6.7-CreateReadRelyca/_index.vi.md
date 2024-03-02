@@ -1,12 +1,12 @@
 ---
-title : "Tạo read replica"
+title : "Tạo read replica database"
 date :  "`r Sys.Date()`" 
 weight : 7
 chapter : false
 pre : " <b> 6.7 </b> "
 ---
 
-#### Tạo Read Replica
+#### Tạo Read Replica database
 
 {{% notice info %}}
 Giả sử chúng ta đang tạo 1 trang web thương mại điện tử với số lượng read lên database nhiều hơn write. Do đó trong bài lab này chúng ta sẽ chọn Read Replica để tối ưu chi phí
@@ -40,3 +40,4 @@ Giả sử chúng ta đang tạo 1 trang web thương mại điện tử với s
 
 6. Nhấn **Create read replica** để AWS bắt đầu tạo read replica
 ![Create TG](/images/6/create-read-replica/006.png?featherlight=false&width=90pc)
+

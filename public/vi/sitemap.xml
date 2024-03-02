@@ -15,50 +15,250 @@
                 />
   </url><url>
     <loc>//localhost:1313/vi/1-introduce/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/1-introduce/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="//localhost:1313/vi/1-introduce/"
+                />
   </url><url>
     <loc>//localhost:1313/vi/6-makewebsitehighly/6.1-createimas/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/6-makewebsitehighly/6.1-createimas/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="//localhost:1313/vi/6-makewebsitehighly/6.1-createimas/"
+                />
   </url><url>
     <loc>//localhost:1313/vi/4-createrds/4.1-createdbsubnetgroup/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/4-createrds/4.1-createdbsubnetgroup/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="//localhost:1313/vi/4-createrds/4.1-createdbsubnetgroup/"
+                />
   </url><url>
     <loc>//localhost:1313/vi/3-createec2server/3.1-createec2/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/3-createec2server/3.1-createec2/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="//localhost:1313/vi/3-createec2server/3.1-createec2/"
+                />
   </url><url>
     <loc>//localhost:1313/vi/7-setup-public-dns/7.1-createdroute53phz/</loc>
   </url><url>
     <loc>//localhost:1313/vi/2-prerequiste/2.1-createvpc/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/2-prerequiste/2.1-createvpc/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="//localhost:1313/vi/2-prerequiste/2.1-createvpc/"
+                />
   </url><url>
     <loc>//localhost:1313/vi/2-prerequiste/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/2-prerequiste/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="//localhost:1313/vi/2-prerequiste/"
+                />
   </url><url>
     <loc>//localhost:1313/vi/7-setup-public-dns/7.2-adddomaintoweb/</loc>
   </url><url>
     <loc>//localhost:1313/vi/2-prerequiste/2.2-createsubnet/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/2-prerequiste/2.2-createsubnet/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="//localhost:1313/vi/2-prerequiste/2.2-createsubnet/"
+                />
   </url><url>
     <loc>//localhost:1313/vi/3-createec2server/3.2-connectec2/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/3-createec2server/3.2-connectec2/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="//localhost:1313/vi/3-createec2server/3.2-connectec2/"
+                />
   </url><url>
     <loc>//localhost:1313/vi/4-createrds/4.2-createrdsinstance/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/4-createrds/4.2-createrdsinstance/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="//localhost:1313/vi/4-createrds/4.2-createrdsinstance/"
+                />
   </url><url>
     <loc>//localhost:1313/vi/6-makewebsitehighly/6.2-createsg/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/6-makewebsitehighly/6.2-createsg/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="//localhost:1313/vi/6-makewebsitehighly/6.2-createsg/"
+                />
   </url><url>
     <loc>//localhost:1313/vi/4-createrds/4.3-updatedbsecuritygroup/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/4-createrds/4.3-updatedbsecuritygroup/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="//localhost:1313/vi/4-createrds/4.3-updatedbsecuritygroup/"
+                />
   </url><url>
     <loc>//localhost:1313/vi/2-prerequiste/2.3-createigw/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/2-prerequiste/2.3-createigw/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="//localhost:1313/vi/2-prerequiste/2.3-createigw/"
+                />
   </url><url>
     <loc>//localhost:1313/vi/3-createec2server/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/3-createec2server/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="//localhost:1313/vi/3-createec2server/"
+                />
   </url><url>
     <loc>//localhost:1313/vi/6-makewebsitehighly/6.3-createaddtionpvsubnet/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/6-makewebsitehighly/6.3-createaddtionpvsubnet/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="//localhost:1313/vi/6-makewebsitehighly/6.3-createaddtionpvsubnet/"
+                />
   </url><url>
     <loc>//localhost:1313/vi/6-makewebsitehighly/6.4-crate2ec2fromimage/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/6-makewebsitehighly/6.4-crate2ec2fromimage/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="//localhost:1313/vi/6-makewebsitehighly/6.4-crate2ec2fromimage/"
+                />
   </url><url>
     <loc>//localhost:1313/vi/4-createrds/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/4-createrds/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="//localhost:1313/vi/4-createrds/"
+                />
   </url><url>
     <loc>//localhost:1313/vi/2-prerequiste/2.4-cretaeroutetable/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/2-prerequiste/2.4-cretaeroutetable/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="//localhost:1313/vi/2-prerequiste/2.4-cretaeroutetable/"
+                />
   </url><url>
     <loc>//localhost:1313/vi/5-installandconfigurewebapp/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/5-installandconfigurewebapp/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="//localhost:1313/vi/5-installandconfigurewebapp/"
+                />
   </url><url>
     <loc>//localhost:1313/vi/2-prerequiste/2.5-createsecuritygroup/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/2-prerequiste/2.5-createsecuritygroup/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="//localhost:1313/vi/2-prerequiste/2.5-createsecuritygroup/"
+                />
   </url><url>
     <loc>//localhost:1313/vi/6-makewebsitehighly/6.5-createtargetgroup/</loc>
   </url><url>
     <loc>//localhost:1313/vi/6-makewebsitehighly/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/6-makewebsitehighly/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="//localhost:1313/vi/6-makewebsitehighly/"
+                />
   </url><url>
     <loc>//localhost:1313/vi/6-makewebsitehighly/6.6-createalb/</loc>
   </url><url>

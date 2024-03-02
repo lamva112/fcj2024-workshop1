@@ -1,5 +1,33 @@
 [
 {
+	"uri": "//localhost:1313/6-makewebsitehighly/6.1-createimas/",
+	"title": "Create AMIs",
+	"tags": [],
+	"description": "",
+	"content": "Create AMIs AMI allows us to create a backup of EC2 virtual machines, including the operating system, applications, and data. Therefore, we need to deploy AMIs with configurations similar to the EC2 instances we created earlier.\nAccess the AWS Management Console\nFind EC2 Select EC2 In the EC2 dashboard Select Instances Choose Webserver Select Action In the Action Popup: Select Image and template Choose Create image In the Create Image interface:\nImage name, enter WebserverImage Press Create Image creation successful "
+},
+{
+	"uri": "//localhost:1313/4-createrds/4.1-createdbsubnetgroup/",
+	"title": "Create DB Subnet Group",
+	"tags": [],
+	"description": "",
+	"content": "Create DB Subnet Group on AWS Access the AWS Management Console\nFind RDS Select RDS In the RDS interface:\nSelect Subnet groups Choose Create DB Subnet group In the Add subnets interface: Name, enter webapp-db-subnet-group Description, enter DB Subnet group Select web-app-vpc VPC In the Add subnets interface: Availability Zones, choose ap-southeast-1a and ap-southeast-1b Subnets, choose 10.10.11.0/24 for ap-southeast-1a and 10.10.12.0/24 for ap-southeast-1b Click Create DB Subnet Group creation completed "
+},
+{
+	"uri": "//localhost:1313/3-createec2server/3.1-createec2/",
+	"title": "Create EC2 Instance",
+	"tags": [],
+	"description": "",
+	"content": "Create EC2 Instance in Public Subnet Access the AWS Management Console\nFind EC2 Select EC2 In the EC2 interface:\nSelect Instances Choose Launch instances Name and tags of the instance, enter Webserver Select AMI\nChoose Quick Start Select Amazon Linux (default) Choose the AMI Amazon Linux 2023 AMI – Free tier eligible Choose Instance type Select t2.micro (default) Choose Create key pair In the Create key pair interface:\nKey pair name, enter aws-keypair (optional name, you can choose any). Key pair type, select RSA Private key file format, select .pem Configure Network\nVPC, select ASG Subnet, select Public Subnet 1 Auto-assign public IP, select Enable Firewall (Security Group), select Select existing security group Choose Public server -SG Click Launch instance Complete the instance creation Wait for about 5 minutes until the Status check changes to 2/2 checks passed "
+},
+{
+	"uri": "//localhost:1313/2-prerequiste/2.1-createvpc/",
+	"title": "Create VPC",
+	"tags": [],
+	"description": "",
+	"content": "Create VPC Access the AWS Management Console\nFind VPC Select VPC In the VPC interface\nSelect Your VPC Choose Create VPC Proceed with creating the VPC\nResource, select VPC only Name tag, enter web-app-vpc IPv4 CIDR, enter 10.10.0.0/16 For the Tenancy configuration, we will leave it at the default mechanism. If we switch to Dedicated, some EC2 Instance types may not be suitable and cannot be created in a VPC with tenancy mode set to Dedicated.\nSelect Create VPC Complete creating VPC View details of the newly created VPC. Check if Enable DNS resolution and DNS Hostname is not enabled yet\nGo to Edit VPC setting Select DNS setting Choose and Save. "
+},
+{
 	"uri": "//localhost:1313/",
 	"title": "Deploy 2-tier web application",
 	"tags": [],
@@ -14,11 +42,137 @@
 	"content": "Introduction to 2-tier Architecture The 2-tier architecture is similar to a client-server application where direct communication occurs between the client and the server. There is no intermediary between the client and the server. Due to the tight coupling, a two-tier application runs faster.\nThe two-tier architecture is divided into two parts:\nClient Application (Client Tier)\nDatabase (Data Tier)\nOn the client application side the code is written for saving the data in the SQL server database. Client sends the request to the server and it processes the request \u0026amp; sends it back with data. The main problem of two tier architecture is the server cannot respond to multiple requests at the same time, as a result it causes a data integrity issue.\nIt’s also called server-client technology.\nAdvantages:\nEasy to maintain and modification is bit easy Communication is faster Disadvantages:\nIn two tier architecture application performance will be degraded as soon as the number of users increases. Cost-ineffective Here is a simple explanation of deploying a two-tier web application architecture on the AWS infrastructure.\nIn the scope of this lab, we only use VPC, EC2, ALB, and RDS services to understand the 2-tier architecture. In reality, additional services such as S3, Route53, and CloudFront are needed.\nHere you can see that a custom VPC is created to secure your web application, and we have distributed all resources across two availability zones (AZs) to provide redundancy for scheduled system maintenance. Therefore, each availability zone is hosting at least one instance for each service, except for services designed for redundancy (e.g., Load Balancers, etc.).\nThe Web tier consists of two web servers (one in each availability zone) deployed on Elastic Compute Cloud (EC2) instances. We balance external traffic to the servers using an Application Load Balancer (ALB).\nThe Database tier, using the Relational Database Service (RDS), provides a relational environment (MySQL, MS SQL, or Oracle) for this solution. In this design, we can also provide read replicas to alleviate the load on the primary database. To optimize costs, additional read replicas are created in each availability zone as required.\n"
 },
 {
+	"uri": "//localhost:1313/3-createec2server/3.2-connectec2/",
+	"title": "Check Connection",
+	"tags": [],
+	"description": "",
+	"content": "Check Connection There are various ways to connect to EC2 instances, you can refer to connecting to EC2 on Windows using PuTTY. In this lab, we use the terminal to connect to EC2.\nOpen Terminal and run the following command with the correct path to the .pem key file: Access the EC2 page:\nSelect Instances Choose Webserver Click Connect In the Connect to instance interface:\nSelect SSH Client Copy the Example path In the previously opened terminal: Paste the Example path Type yes Connection successful. To check the internet connection of the EC2 Public, execute the command: ping amazon.com -c5 "
+},
+{
+	"uri": "//localhost:1313/4-createrds/4.2-createrdsinstance/",
+	"title": "Create RDS Database instance",
+	"tags": [],
+	"description": "",
+	"content": "Create a DB Instance on AWS In the RDS interface:\nSelect Databases Click Create database In the Create database interface: For Choose a database creation method, select Standard create For Engine options, choose MySQL Choose Templates for this DB instance as Free tier To set up your main password, follow these steps: For DB instance identifierInfo, enter webapp-db Open Credential Settings Keep the Master username as admin Enter Master password and Confirm master password You cannot view the main user\u0026rsquo;s password. If you don\u0026rsquo;t record it, you may need to change it later. If you need to change the main user\u0026rsquo;s password after the DB Instance is ready, you can modify the DB Instance to do this. For more information on modifying a DB Instance, see Modifying an Amazon RDS DB Instance.\nIn the Connectivity section:\nFor Compute resource, select Don’t connect to an EC2 compute resource. We will set up the connection to EC2 in the next section. For Virtual private cloud (VPC), choose web-app-vpc For DB subnet group, select webapp-db-subnet-group For Public access, choose No For VPC security group (firewall):\nChoose Create new For New VPC security group name, enter webapp-db-security-group Open Additional configuration and enter corp for Initial database name Select Create and the DB instance will start initializing Wait for about 5 minutes for the status to change to available "
+},
+{
+	"uri": "//localhost:1313/6-makewebsitehighly/6.2-createsg/",
+	"title": "Create security group",
+	"tags": [],
+	"description": "",
+	"content": "Create security group for the new EC2 instance As per the initial design, the EC2 instance is placed in a private subnet, so we need to ensure that the security groups applied to the EC2 instance allow connections from resources within the same VPC.\nIn the EC2 interface, select Security Groups Choose Create security group In the Create security group interface under Basic details: Security group name, enter Private server - SG Description, enter Allow inbound HTTP traffic on port 80 inside VPC VPC, select web-app-vpc Configure Inbound rules:\nIn Inbound rules, click Add rule.\nSelect Type: HTTP and Source: 10.10.0.0/16 to allow instances within the Security Group to communicate via HTTP protocol within the VPC.\nPress Create security group to complete the creation. Create security group for Application Load Balancer In the EC2 interface, select Security Groups Choose Create security group In the Create security group interface under Basic details: Security group name, enter ALB-SG Description, enter Allow inbound HTTP traffic on port 80 from the internet VPC, select web-app-vpc Configure Inbound rules:\nIn Inbound rules, click Add rule.\nSelect Type: HTTP and Source: Anywhere. Allow instances within the Security Group to communicate via HTTP protocol with the outside.\nSelect Create security group to complete the security group creation. "
+},
+{
+	"uri": "//localhost:1313/2-prerequiste/2.2-createsubnet/",
+	"title": "Create Subnet",
+	"tags": [],
+	"description": "",
+	"content": "Create Subnet In the VPC Interface:\nSelect Subnets Select Create subnet In the Create subnet Interface:\nSelect ASG VPC Perform subnet settings\nSubnet name, enter Public Subnet 1 Choose AZ ap-southeast-1a IPv4 CIDR block, enter 10.10.0.0/24 as described in the architecture Select Create subnet Complete creating subnet Perform the following steps to create additional subnets:\nPublic subnet 2 with CIDR of 10.10.1.0/24 in Availability Zone ap-southeast-1b. Private subnet 1 with CIDR of 10.10.11.0/24 in Availability Zone ap-southeast-1a. Private subnet 2 with CIDR of 10.10.12.0/24 in Availability Zone ap-southeast-1b. You may notice there are 2 columns, Availability Zone and Availability Zone ID. To avoid uneven EC2 resource utilization (we tend to use AZ a for primary and AZ b for standby, for example), AWS randomly assigns Availability Zone to Availability Zone ID. We can understand that Availability Zone is a form of an alias, while the Availability Zone ID is the identifier. For example, in the image above, Availability Zone ap-southeast-1a is assigned Availability Zone ID apse1-az2. In another AWS account, Availability Zone ap-southeast-1a may have Availability Zone ID apse1-az1.\nAllow automatic assignment of public IP addresses to 2 public subnets. Another noteworthy point is that the subnets are essentially the same, through route table configuration and public IP address assignment, which we have just divided into Public and Private Subnets.\nIn the VPC interface:\nSelect Subnets Choose Public Subnet 1 Select Actions Choose Edit subnet settings Repeat the same process for Public subnet 2. "
+},
+{
 	"uri": "//localhost:1313/2-prerequiste/",
 	"title": "Preparation Steps",
 	"tags": [],
 	"description": "",
 	"content": "Preparation Steps Firstly, we will build a model according to the diagram below to ensure that our web application functions smoothly.\n"
+},
+{
+	"uri": "//localhost:1313/6-makewebsitehighly/6.3-createaddtionpvsubnet/",
+	"title": "Create 2 Additional Private Subnets",
+	"tags": [],
+	"description": "",
+	"content": "Create 2 Additional Private Subnets for EC2 Access the AWS Management Console\nFind VPC Select VPC In the VPC dashboard: Select Subnet Choose Create Subnet In the Create Subnet interface: VPC, select web-app-vpc In the Subnet settings section: Subnet name, enter Private subnet 3 Availability Zone, select ap-southeast-1a IPv4 subnet CIDR block, enter 10.10.13.0/24 Press Create subnet Similarly, create Private subnet 4 with CIDR 10.10.14.0/24 Complete the creation of 2 additional private subnets "
+},
+{
+	"uri": "//localhost:1313/3-createec2server/",
+	"title": "Create EC2 Instances",
+	"tags": [],
+	"description": "",
+	"content": "Create EC2 Instances In this step, we will create 2 EC2 instances according to the architecture below.\n"
+},
+{
+	"uri": "//localhost:1313/2-prerequiste/2.3-createigw/",
+	"title": "Create Internet Gateway",
+	"tags": [],
+	"description": "",
+	"content": "Create Internet Gateway In the VPC interface:\nSelect Internet Gateways Choose Create internet gateway Perform configuration\nName tag, enter Internet Gateway Select Create internet gateway Complete creating Internet Gateway Perform Attach VPC\nSelect Actions Choose Attach to VPC Select ASG, VPC ID will be automatically filled in. Choose Attach internet gateway When attached successfully, the State of the internet gateway will change to Attached "
+},
+{
+	"uri": "//localhost:1313/4-createrds/4.3-updatedbsecuritygroup/",
+	"title": "Update DB security group",
+	"tags": [],
+	"description": "",
+	"content": "Update DB security group to allow traffic from VPC CIDR In the Amazon RDS interface: Select Database Open webapp-db In the webapp-db interface: Select Connectivity \u0026amp; Security Click on the VPC Security groups link (this will open the EC2 console with the selected DB security group) Open webapp-db-security-group Select Inbound rules Select Edit inbound rules In the Edit inbound rules interface: Update source to 10.10.0.0/16 Select Save rules "
+},
+{
+	"uri": "//localhost:1313/6-makewebsitehighly/6.4-crate2ec2fromimage/",
+	"title": "Create 2 New EC2 Instances from AMIs",
+	"tags": [],
+	"description": "",
+	"content": "Stop Current EC2 Instance Access the AWS Management Console\nFind EC2 Select EC2 In the EC2 dashboard: Select Instances Choose Webserver Select Instance state Choose Stop instance Currently, we are not using the Webserver anymore because all the configuration and setup for the web application have been saved in AMIs. We will use AMIs to create Webserver1 and Webserver2 in the private subnet.\nCreate 2 New EC2 Instances from AMIs In the Instances interface, select Launch instance In the Launch an instance interface, under Name and tags Info, enter Webserver1 In the Amazon Machine Image section: Select the My AMIs tab and choose Owned by me Choose WebserverImage Configure Instance type: Choose t2.micro (default) Select the previously created key pair Configure Network: VPC, select web-app-vpc Subnet, choose Private Subnet 3 Auto-assign public IP, select disable Firewall (Security Group), choose Select existing security group Select Private server -SG Click Launch instance Similarly, create Webserver2 with the following network configuration: Complete the creation of 2 new EC2 instances "
+},
+{
+	"uri": "//localhost:1313/4-createrds/",
+	"title": "Create RDS Database",
+	"tags": [],
+	"description": "",
+	"content": "Create RDS database instance In this step, we will create an RDS database instance according to the architecture below.\n"
+},
+{
+	"uri": "//localhost:1313/2-prerequiste/2.4-cretaeroutetable/",
+	"title": "Create Route Table",
+	"tags": [],
+	"description": "",
+	"content": "Create Route Table for routing out to the internet via Internet Gateway. In the VPC interface:\nSelect Route Tables Choose Create route table Perform configuration for the Route table\nName, enter Route table-Public VPC, select ASG VPC. The VPC ID will be automatically filled in. Choose Create route table Complete creating the Route table Perform Edit route\nSelect Actions Choose Edit routes In the Edit routes interface:\nChoose Add route Enter Destination CIDR : 0.0.0.0/0 representing the Internet. In the Target section, select Internet Gateway, then choose the Internet Gateway we created. The Internet Gateway ID will be automatically filled in. Choose Save changes Complete and verify the Routes Ensure Route table - Public is selected.\nSelect subnet associations Choose Edit subnet associations In the Edit subnet associations step:\nExpand the Subnet ID column by dragging the separator to the right. Select the correct 2 public subnets we created. Select Save associations Complete and verify the Subnet associations Create Route table - Private and associate it with the private subnets. In the Route Tables interface: Choose Create route table In the Create route table interface: Name, enter Route table - Private VPC, select web-app-vpc VPC Choose Create route table Complete creating the Route table - Private In the Route table - Private interface:\nSelect Subnet Associations Choose Edit subnet associations In the Edit subnet associations interface:\nSelect 2 private subnets Choose Save associations "
+},
+{
+	"uri": "//localhost:1313/2-prerequiste/2.5-createsecuritygroup/",
+	"title": "Create Security Group",
+	"tags": [],
+	"description": "",
+	"content": "Create Security Group Create Security Group for servers located in the Public subnet In the VPC interface:\nSelect Security Group Choose Create security group Perform configuration for the Security group\nSecurity Group name, enter Public server - SG Description, enter Allow SSH and Ping for servers in public subnet. Select web-app-vpc VPC Perform configuration for Inbound rules\nIn Inbound rules, click Add rule.\nSelect Type: SSH and Source: My IP. Allow ping from any IP address.\nClick Add rule to add a new rule.\nSelect Type: HTTP and Source: Anywhere. Allow instances within this Security Group to communicate via HTTP protocol with the outside world.\nCheck Outbound rules and choose Create security group Complete creating the security group for servers located in the Public subnet "
+},
+{
+	"uri": "//localhost:1313/6-makewebsitehighly/6.5-createtargetgroup/",
+	"title": "Create Target Groups",
+	"tags": [],
+	"description": "",
+	"content": "Create Target Groups In Amazon Web Services (AWS), a target group is a group of destination servers to which requests from a service are routed. Target groups are commonly used in services such as Elastic Load Balancing (ELB) or AWS Auto Scaling to route requests to appropriate destination servers.\nIn this lab, we will create a target group for 2 EC2 instances to route requests from a load balancer to these 2 EC2 instances. This helps distribute load and increase the availability and reliability of the application by sharing the workload between servers.\nIn the EC2 interface: Select Target Groups Click Create target group In the Step 1 interface (Specify group details): For Basic configuration, choose target type as instance Continue configuring the target group: For Target group name, enter ALB-TG For Protocol : Port, select HTTP Choose IP address type as IPv4 VPC, select web-app-vpc Create Health checks: Health check protocol, choose HTTP Health check path, enter corp.php In AWS, health checks in a target group are used to monitor the health status of instances or targets managed by the target group. The goal of health checks is to ensure that only healthy and ready-to-serve instances or targets receive traffic from load balancers or other services. Here are some key purposes of using health checks in a target group:\nEnsure Load Balancer routes traffic only to functioning instances: Health checks ensure that only active and healthy EC2 instances or targets receive traffic from the Load Balancer. This helps prevent routing traffic to non-functioning or faulty instances.\nIncrease availability and reliability of the application: By accepting only active and healthy instances into the target group, you ensure that your application is always available to serve requests from users without issues.\nAutomatically detect and handle failures: If an EC2 instance or target fails to pass the health check, the load balancer or other services can automatically remove it from the traffic routing process. This helps automatically detect and handle failures without manual intervention.\nClick Next to proceed to step 2.\nIn Step 2 (Register targets):\nSelect the 2 instances Webserver1 and Webserver2. Choose Include as pending below. Verify that the 2 instances have been added as targets and click Create target group. Complete the creation of the target group. "
+},
+{
+	"uri": "//localhost:1313/5-installandconfigurewebapp/",
+	"title": "Install and Configure Web Application on EC2 Server",
+	"tags": [],
+	"description": "",
+	"content": "Install and Configure Web Application on EC2 Server Connect to the EC2 instance via SSH using the public IP of the EC2 Install Apache web server and PHP packages # Switch to superuser mode for administrative privileges sudo su # Update the system with the DNF package manager dnf update -y # Install Apache HTTP server (httpd), PHP, MariaDB, and related packages dnf install -y httpd php php-mysqli mariadb105 # Start the Apache HTTP server systemctl start httpd # Enable automatic startup of the Apache HTTP server on system boot systemctl enable httpd Configure database connection settings Create the inc directory # Change directory to /var/www where web content is often stored cd /var/www # Create a new directory named \u0026#39;inc\u0026#39; to store include files or other resources mkdir inc # Change directory to the newly created \u0026#39;inc\u0026#39; directory cd inc Create a new file named dbinfo.inc (You can use vi or nano, in this example, we\u0026rsquo;ll use vi). This will open a blank file. vi dbinfo.inc Press i to enter insert mode Add the following content. Replace the values for the parameters based on your environment. \u0026lt;?php define(\u0026#39;DB_SERVER\u0026#39;, \u0026#39;db_instance_endpoint\u0026#39;); define(\u0026#39;DB_USERNAME\u0026#39;, \u0026#39;admin\u0026#39;); define(\u0026#39;DB_PASSWORD\u0026#39;, \u0026#39;master password\u0026#39;); define(\u0026#39;DB_DATABASE\u0026#39;, \u0026#39;corp\u0026#39;); ?\u0026gt; Be careful when replacing the values because if incorrect, we won\u0026rsquo;t be able to connect to RDS, and our web application won\u0026rsquo;t function.\nPress esc and type :wq to save and exit vi Type cd to return to the root directory Install and configure the web application on EC2\nCreate the corp.php application file in the /var/www/html directory cd /var/www/html Use vi to create the file corp.php (follow the instructions as mentioned above) Add the following code to corp.php You can copy the corp.php file from this GitHub repo: https://github.com/lamva112/fcj2024-example/blob/main/corp.php\nOpen your web browser and access the URL http://PUBLICIP/corp.php PUBLICIP is the public IP of the EC2 instance\nComplete the web application setup You can add data to the database directly from the web application\nVerify data in the database. Return to the root using the command cd Install the MySQL client on the EC2 instance # Install pip (Amazon Linux 2023 does not have pip installed by default) dnf install -y python3-pip # Install necessary development packages for MariaDB and Python dnf install -y mariadb105-devel gcc python3-devel # Use pip to install the MySQL client library pip install mysqlclient Connect to the database and query data #Access MySQL mysql -h \u0026lt;database endpoint\u0026gt; -u admin –p #Access the corp database MySQL [(none)]\u0026gt; connect corp #Query data MySQL [corp]\u0026gt; select * from EMPLOYEES; Add data from the website and observe if it reflects changes. Optionally, insert data directly into the database table and see if the website displays the data. insert into EMPLOYEES values (\u0026#39;2\u0026#39;,\u0026#39;Phuc\u0026#39;,\u0026#39;18\u0026#39;,\u0026#39;Ho Chi Minh\u0026#39;); "
+},
+{
+	"uri": "//localhost:1313/6-makewebsitehighly/6.6-createalb/",
+	"title": "Create Application Load Balancer",
+	"tags": [],
+	"description": "",
+	"content": "Create Application Load Balancer In the EC2 dashboard: Select Load Balancers Choose Create load balancers In the Compare and select load balancer type interface: Select Create under Application Load Balancer In the Create Application Load Balancer interface: For Load balancer name, enter MyALB For Scheme, choose Internet-facing For IP address typeInfo, select IPv4 Continue configuring Network mapping: For VPC, select Web-app-vpc For ap-southeast-1a (apse1-az2), choose Public Subnet 1 For ap-southeast-1b (apse1-az1), choose Public Subnet 2 In the Security groups section: Select ALB-SG In the Listeners and routing section: For Default actionInfo, select the target group ALB-TG Press Create to complete creating the Application Load Balancer "
+},
+{
+	"uri": "//localhost:1313/6-makewebsitehighly/",
+	"title": "Create High Availability 2-tier Web Application",
+	"tags": [],
+	"description": "",
+	"content": "Create High Availability 2-tier Web Application In today\u0026rsquo;s digital landscape, ensuring the availability and reliability of web applications is crucial to meet user expectations and maintain business continuity. With the emergence of cloud computing, platforms such as Amazon Web Services (AWS) provide robust infrastructure and services to achieve high availability and fault tolerance.\nA two-tier web application architecture with high availability on AWS demonstrates flexibility, scalability, and performance optimization. This architecture consists of two separate tiers: the presentation tier responsible for serving user requests, and the data tier managing application data storage and retrieval. Using AWS services, this architecture ensures continuous operation, seamless scalability, and efficient resource utilization.\nIn the presentation tier, web servers are hosted on Amazon EC2 instances distributed across multiple available zones (AZs) for fault tolerance. These instances are configured in an auto-scaling group, automatically adjusting capacity to match fluctuating traffic demands. A Elastic Load Balancer (ELB) distributes request traffic to healthy instances, ensuring optimal performance and minimizing single points of failure.\nConcurrently, the data tier relies on Amazon RDS, a managed relational database service, providing scalability, automatic backups, and multi-region deployment options. By replicating data across regions, RDS enhances fault tolerance and data durability, minimizing downtime and data loss in case of incidents.\nThe coordination of these components in a two-tier high availability architecture on AWS promotes resilience against hardware failures, network issues, and regional outages. Additionally, AWS CloudWatch provides comprehensive monitoring and alerting capabilities, enabling proactive management of system health and performance metrics.\nIn summary, a two-tier web application architecture with high availability on AWS epitomizes modern cloud-native principles, enabling businesses to deliver seamless user experiences while maintaining operational excellence. By leveraging scalable infrastructure and reliable services from AWS, organizations can achieve reliability, flexibility, and unlimited scalability in the digital age.\nBelow is a simple explanation of deploying a two-tier web application architecture on the AWS infrastructure.\n"
+},
+{
+	"uri": "//localhost:1313/6-makewebsitehighly/6.7-createreadrelyca/",
+	"title": "Create Read Replica Database",
+	"tags": [],
+	"description": "",
+	"content": "Create Read Replica database Assuming we are creating an e-commerce website with more read operations on the database than writes. Therefore, in this lab, we will choose Read Replica to optimize costs.\nIn the RDS interface: Select Databases Choose webapp-db In the RDS interface: Select Action In the Pop-up, choose Create read replica In the Create read replica interface:\nFor Db instance identifier, enter db-read-replica For Connectivity, choose Availability Zone and select ap-southest-1b (as in the original design) For the Availability section:\nChoose Single DB instance For the Connectivity section:\nChoose Availability Zone and select ap-southest-1b (as in the original design) Press Create read replica to let AWS start creating the read replica "
+},
+{
+	"uri": "//localhost:1313/6-makewebsitehighly/6.8-checktatus/",
+	"title": "",
+	"tags": [],
+	"description": "",
+	"content": ""
 },
 {
 	"uri": "//localhost:1313/categories/",
