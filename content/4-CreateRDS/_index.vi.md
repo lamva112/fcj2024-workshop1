@@ -1,5 +1,5 @@
 ---
-title : "Tạo RDS database instance "
+title : "Tạo RDS database"
 date :  "`r Sys.Date()`" 
 weight : 4 
 chapter : false

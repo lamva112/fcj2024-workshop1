@@ -9,24 +9,24 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Start with Amazon VPC and AWS VPN Site-to-Site. :: Start with Amazon VPC and AWS VPN Site-to-Site.</title>
+    <title>Deploy 2-tier web application :: Start with Amazon VPC and AWS VPN Site-to-Site.</title>
 
     
-    <link href="/css/nucleus.css?1709374625" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1709374625" rel="stylesheet">
-    <link href="/css/hybrid.css?1709374625" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1709374625" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1709374625" rel="stylesheet">
-    <link href="/css/auto-complete.css?1709374625" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1709374625" rel="stylesheet">
-    <link href="/css/theme.css?1709374625" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1709374625" rel="stylesheet">
+    <link href="/css/nucleus.css?1709376495" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1709376495" rel="stylesheet">
+    <link href="/css/hybrid.css?1709376495" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1709376495" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1709376495" rel="stylesheet">
+    <link href="/css/auto-complete.css?1709376495" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1709376495" rel="stylesheet">
+    <link href="/css/theme.css?1709376495" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1709376495" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1709374625" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1709376495" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1709374625"></script>
+    <script src="/js/jquery-3.3.1.min.js?1709376495"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1709374625"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1709374625"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1709376495"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1709376495"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1709374625"></script>
+<script type="text/javascript" src="/js/search.js?1709376495"></script>
 
     
   </div>
@@ -73,6 +73,58 @@
     <ul class="topics">
 
         
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/1-introduce/" title="Introduction" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/1-introduce/">
+          <b> 1. </b>Introduction
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2-prerequiste/" title="Preparation Steps" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/2-prerequiste/">
+          <b> 2. </b>Preparation Steps
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
           
          
     </ul>
@@ -201,17 +253,37 @@
 <a href="#" id="sidebar-toggle" data-sidebar-toggle=""><i class="fas fa-bars"></i> navigation</a>
 </span>
 
-           
-	
-		<h1>Customize your own home page</h1>
-		<p>
-		  The site is working. Don't forget to customize this homepage with your own. You typically have 3 choices :
-		</p>
-		<ul>
-			<li><b>1. </b> Create an _index.md document in <b>content</b> folder and fill it with Markdown content</li>
-			<li><b>2. </b> Create an <b>index.html</b> file in the <b>static</b> folder and fill the file with HTML content</li>
-		  <li><b>3. </b> Configure your server to automatically redirect home page to one your documentation page</li>
-		</ul>
+ 
+<h1 id="starting-with-2-tier-application">Starting with 2 Tier Application</h1>
+<h4 id="overview">Overview</h4>
+<p>A 2-tier web application is a popular software architecture in which the components of the application are divided into two main tiers: the user interface tier and the service or processing logic tier. In this model, the user interface tier is responsible for displaying data and interacting with users, while the service or processing logic tier performs tasks such as processing logic, retrieving data, and interacting with databases or other systems.</p>
+<p>When deploying a 2-tier application on AWS (Amazon Web Services), there are several important services and resources that you can use:</p>
+<ol>
+<li>
+<p><strong>EC2 (Elastic Compute Cloud)</strong>: EC2 provides scalable virtual machines that you can use to deploy components of your application, including both the user interface tier and the service tier.</p>
+</li>
+<li>
+<p><strong>RDS (Relational Database Service)</strong>: RDS offers relational database services such as MySQL, PostgreSQL, SQL Server, and Oracle. You can use RDS to store data for your application.</p>
+</li>
+<li>
+<p><strong>ELB (Elastic Load Balancing)</strong>: ELB enables distributing traffic across your EC2 instances, enhancing the scalability and reliability of your application.</p>
+</li>
+<li>
+<p><strong>VPC (Virtual Private Cloud)</strong>: VPC allows you to create a virtual network environment within AWS to deploy your application, providing security and access control.</p>
+</li>
+</ol>
+<p>In this lab, we will explore the concept of a 2-tier web application and how to execute it in the AWS environment.</p>
+<h4 id="content">Content</h4>
+<ol>
+<li><a href="/1-introduce/">Introduction to 2-tier</a></li>
+<li><a href="/2-prerequiste/">Prerequisite steps</a></li>
+<li><a href="3-CreateEc2Server/">Create EC2 server</a></li>
+<li><a href="4-CreateRDS/">Create RDS database</a></li>
+<li><a href="5-Installandconfigurewebapp/">Install and configure web application on EC2 server</a></li>
+<li><a href="6-makeWebSiteHighly/">Create a highly available 2-tier web application</a></li>
+<li><a href="7-setup-public-dns/">Configure Public DNS with Route53</a></li>
+<li><a href="8-cleanUpResource/">Clean up resources</a></li>
+</ol>
 	
   
         
@@ -240,6 +312,41 @@
                     
 
                     
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
             
         
         
@@ -250,6 +357,8 @@
 	 
 		
 		
+			<a class="nav nav-next" href="/1-introduce/" title="Introduction" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
 	
     </div>
 
@@ -258,19 +367,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1709374625"></script>
-    <script src="/js/perfect-scrollbar.min.js?1709374625"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1709374625"></script>
-    <script src="/js/jquery.sticky.js?1709374625"></script>
-    <script src="/js/featherlight.min.js?1709374625"></script>
-    <script src="/js/highlight.pack.js?1709374625"></script>
+    <script src="/js/clipboard.min.js?1709376495"></script>
+    <script src="/js/perfect-scrollbar.min.js?1709376495"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1709376495"></script>
+    <script src="/js/jquery.sticky.js?1709376495"></script>
+    <script src="/js/featherlight.min.js?1709376495"></script>
+    <script src="/js/highlight.pack.js?1709376495"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1709374625"></script>
-    <script src="/js/learn.js?1709374625"></script>
-    <script src="/js/hugo-learn.js?1709374625"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1709376495"></script>
+    <script src="/js/learn.js?1709376495"></script>
+    <script src="/js/hugo-learn.js?1709376495"></script>
 
-    <link href="/mermaid/mermaid.css?1709374625" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1709374625"></script>
+    <link href="/mermaid/mermaid.css?1709376495" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1709376495"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

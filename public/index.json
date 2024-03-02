@@ -1,14 +1,28 @@
 [
 {
-	"uri": "//localhost:1313/categories/",
-	"title": "Categories",
+	"uri": "//localhost:1313/",
+	"title": "Deploy 2-tier web application",
 	"tags": [],
 	"description": "",
-	"content": ""
+	"content": "Starting with 2 Tier Application Overview A 2-tier web application is a popular software architecture in which the components of the application are divided into two main tiers: the user interface tier and the service or processing logic tier. In this model, the user interface tier is responsible for displaying data and interacting with users, while the service or processing logic tier performs tasks such as processing logic, retrieving data, and interacting with databases or other systems.\nWhen deploying a 2-tier application on AWS (Amazon Web Services), there are several important services and resources that you can use:\nEC2 (Elastic Compute Cloud): EC2 provides scalable virtual machines that you can use to deploy components of your application, including both the user interface tier and the service tier.\nRDS (Relational Database Service): RDS offers relational database services such as MySQL, PostgreSQL, SQL Server, and Oracle. You can use RDS to store data for your application.\nELB (Elastic Load Balancing): ELB enables distributing traffic across your EC2 instances, enhancing the scalability and reliability of your application.\nVPC (Virtual Private Cloud): VPC allows you to create a virtual network environment within AWS to deploy your application, providing security and access control.\nIn this lab, we will explore the concept of a 2-tier web application and how to execute it in the AWS environment.\nContent Introduction to 2-tier Prerequisite steps Create EC2 server Create RDS database Install and configure web application on EC2 server Create a highly available 2-tier web application Configure Public DNS with Route53 Clean up resources "
 },
 {
-	"uri": "//localhost:1313/",
-	"title": "Start with Amazon VPC and AWS VPN Site-to-Site.",
+	"uri": "//localhost:1313/1-introduce/",
+	"title": "Introduction",
+	"tags": [],
+	"description": "",
+	"content": "Introduction to 2-tier Architecture The 2-tier architecture is similar to a client-server application where direct communication occurs between the client and the server. There is no intermediary between the client and the server. Due to the tight coupling, a two-tier application runs faster.\nThe two-tier architecture is divided into two parts:\nClient Application (Client Tier)\nDatabase (Data Tier)\nOn the client application side the code is written for saving the data in the SQL server database. Client sends the request to the server and it processes the request \u0026amp; sends it back with data. The main problem of two tier architecture is the server cannot respond to multiple requests at the same time, as a result it causes a data integrity issue.\nIt’s also called server-client technology.\nAdvantages:\nEasy to maintain and modification is bit easy Communication is faster Disadvantages:\nIn two tier architecture application performance will be degraded as soon as the number of users increases. Cost-ineffective Here is a simple explanation of deploying a two-tier web application architecture on the AWS infrastructure.\nIn the scope of this lab, we only use VPC, EC2, ALB, and RDS services to understand the 2-tier architecture. In reality, additional services such as S3, Route53, and CloudFront are needed.\nHere you can see that a custom VPC is created to secure your web application, and we have distributed all resources across two availability zones (AZs) to provide redundancy for scheduled system maintenance. Therefore, each availability zone is hosting at least one instance for each service, except for services designed for redundancy (e.g., Load Balancers, etc.).\nThe Web tier consists of two web servers (one in each availability zone) deployed on Elastic Compute Cloud (EC2) instances. We balance external traffic to the servers using an Application Load Balancer (ALB).\nThe Database tier, using the Relational Database Service (RDS), provides a relational environment (MySQL, MS SQL, or Oracle) for this solution. In this design, we can also provide read replicas to alleviate the load on the primary database. To optimize costs, additional read replicas are created in each availability zone as required.\n"
+},
+{
+	"uri": "//localhost:1313/2-prerequiste/",
+	"title": "Preparation Steps",
+	"tags": [],
+	"description": "",
+	"content": "Preparation Steps Firstly, we will build a model according to the diagram below to ensure that our web application functions smoothly.\n"
+},
+{
+	"uri": "//localhost:1313/categories/",
+	"title": "Categories",
 	"tags": [],
 	"description": "",
 	"content": ""

@@ -1,5 +1,5 @@
 ---
-title : "Tạo 2-tier web app có tính khả dụng cao"
+title : "Tạo 2-tier web application có tính khả dụng cao"
 date :  "`r Sys.Date()`" 
 weight : 6
 chapter : false
