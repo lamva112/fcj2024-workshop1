@@ -13,3 +13,4 @@ Trong hướng dẫn toàn diện này, chúng tôi sẽ hướng dẫn bạn qu
 
 Cho dù bạn đang khởi chạy một trang web mới, triển khai một ứng dụng web, hoặc di chuyển cơ sở hạ tầng tên miền hiện có của bạn vào AWS, hướng dẫn của chúng tôi sẽ cung cấp cho bạn kiến thức và công cụ cần thiết để điều hướng quá trình cấu hình tên miền một cách hiệu quả và hiệu quả.
 
+![Architect](/images/1-Introduce/full-2-tier-with-53.svg?featherlight=false&width=40pc)

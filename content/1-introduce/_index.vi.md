@@ -33,7 +33,7 @@ Nhược điểm:
 
 Dưới đây là một giải thích đơn giản về việc triển khai ứng dụng web theo kiến trúc hai tầng trên cơ sở hạ tầng AWS.
 
-![Architect](/images/1-Introduce/full-2-tier.svg?featherlight=false&width=40pc)
+![Architect](/images/1-Introduce/full-2-tier-with-53.svg?featherlight=false&width=40pc)
 
 {{% notice info %}}
 Trong phạm vi bài lab này chúng ta chỉ sử dụng các dịch vụ VPC, EC2, ALB và RDS để hiểu về 2 tier. Trong thực tế cần thêm các dịch vụ như S3, Route53,Cloudfront. 

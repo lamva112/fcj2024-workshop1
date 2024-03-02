@@ -12,4 +12,3 @@ pre : " <b> 3. </b> "
 
 ![Create EC2](/images/2/2-tier-web.svg?featherlight=false&width=60pc)
 
-#### Nội dung 

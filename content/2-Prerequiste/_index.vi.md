@@ -12,4 +12,3 @@ Trước tiên, chúng ta sẽ xây dựng một mô hình theo sơ đồ bên d
 
 ![simple 2 tier](/images/2/2-tier-web.svg?featherlight=false&width=90pc)
 
-#### Nội dung

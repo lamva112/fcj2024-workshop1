@@ -26,5 +26,12 @@ Trong bài lab này chúng ta sẽ cùng tìm hiểu tìm 2 tier web aplication 
 
 
 #### Nội dung
-1. [Giới thiệu 2-tier](1-introduce/)
+
+1. [Giới thiệu 2-tier web](1-introduce/)
 2. [Các bước chuẩn bị](2-Prerequiste/)
+3. [Tạo EC2 Server](3-CreateEc2Server/) 
+4. [Tạo RDS database](4-CreateRDS/)
+5. [Cài đặt và cấu hình 2-tier web application](5-Installandconfigurewebapp/)
+6. [Tạo 2-tier web application với tính khả dụng cao](6-makeWebSiteHighly/)
+7. [Cấu hình Public DNS với Route53](7-setup-public-dns/)
+8. [Dọn dẹp tài nguyên](8-cleanUpResource/)
